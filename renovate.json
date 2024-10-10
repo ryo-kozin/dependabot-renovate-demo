@@ -1,6 +1,35 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "extends": ["config:base"],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["every Monday after 9am before 6pm"],
+  "assignees": ["ryo-kozin"],
+  "baseBranches": ["main"],
+  "patch": {
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "branchName": "package",
+      "commitMessagePrefix": "patch:"
+    },
+    {
+      "extends": ["group:definitelyTyped"],
+      "automerge": true,
+      "major": {
+        "automerge": false
+      },
+      "branchName": "package",
+      "commitMessagePrefix": "@types:"
+    },
+    {
+      "matchUpdateTypes": ["minor", "major"],
+      "schedule": ["before 6am on the first Monday of the month"],
+      "automerge": false,
+      "branchName": "package",
+      "commitMessagePrefix": "update:"
+    }
   ]
 }

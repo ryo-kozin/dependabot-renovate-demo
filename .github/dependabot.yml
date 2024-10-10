@@ -1,17 +1,29 @@
+# Check security updates only
 version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: 'daily'
-    open-pull-requests-limit: 0
+    open-pull-requests-limit: 0 # Not to create PRs for version updates
     groups:
-      major-updates:
-        applies-to: version-updates
+      patch-updates:
+        applies-to: security-updates
         update-types:
-          - 'major'
-      minor-patch-updates:
-        applies-to: version-updates
+          - 'patch'
+        commit-message:
+          prefix: 'patch'
+
+      minor-updates:
+        applies-to: security-updates
         update-types:
           - 'minor'
-          - 'patch'
+        commit-message:
+          prefix: 'minor'
+
+      major-updates:
+        applies-to: security-updates
+        update-types:
+          - 'major'
+        commit-message:
+          prefix: 'major'
