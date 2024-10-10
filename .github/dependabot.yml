@@ -4,3 +4,14 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    open-pull-requests-limit: 0
+    groups:
+      major-updates:
+        applies-to: version-updates
+        update-types:
+          - 'major'
+      minor-patch-updates:
+        applies-to: version-updates
+        update-types:
+          - 'minor'
+          - 'patch'
