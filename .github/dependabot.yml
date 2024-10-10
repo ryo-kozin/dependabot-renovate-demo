@@ -5,6 +5,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    assignees:
+      - 'ryo-kozin'
     open-pull-requests-limit: 0 # Not to create PRs for version updates
     groups:
       patch-updates:
