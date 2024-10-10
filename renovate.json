@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
   "timezone": "Asia/Tokyo",
-  "schedule": ["every Monday after 9am before 6pm"],
+  "schedule": ["before 9am on Monday"],
   "assignees": ["ryo-kozin"],
   "baseBranches": ["main"],
   "patch": {
@@ -26,7 +26,7 @@
     },
     {
       "matchUpdateTypes": ["minor", "major"],
-      "schedule": ["before 6am on the first Monday of the month"],
+      "schedule": ["before 8am on the first Monday of the month"],
       "automerge": false,
       "branchName": "package",
       "commitMessagePrefix": "update:"
